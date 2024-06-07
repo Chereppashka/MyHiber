@@ -21,17 +21,6 @@ public class Util {
 
     private static SessionFactory sessionFactory;
 
-    public static Connection getConnection() {
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            connection.setAutoCommit(false);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return connection;
-    }
-
     private static Configuration getConfiguration() {
         Configuration configuration = new Configuration();
         Properties properties = new Properties();
