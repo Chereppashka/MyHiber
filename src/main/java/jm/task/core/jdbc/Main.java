@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        User user1 = new User("Coco", "Shanel",(byte)87);
+        User user1 = new User("Coco", "Shanel", (byte) 87);
         User user2 = new User("Anton", "Chehov", (byte) 65);
         User user3 = new User("Vlad", "Tcepesh", (byte) 1);
         User user4 = new User("Donald", "Duck", (byte) 50);
@@ -36,3 +36,4 @@ public class Main {
 
     }
 }
+

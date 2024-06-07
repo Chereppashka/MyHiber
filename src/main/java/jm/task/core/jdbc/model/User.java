@@ -1,25 +1,37 @@
 package jm.task.core.jdbc.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
-@Table
+
+@Entity
+@Table(name = "Users")
 public class User {
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column
+    @Column(name = "age")
     private Byte age;
 
     public User() {
-
     }
 
     public User(String name, String lastName, Byte age) {
@@ -68,5 +80,27 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (!Objects.equals(id, user.id)) return false;
+        if (!Objects.equals(name, user.name)) return false;
+        if (!Objects.equals(lastName, user.lastName)) return false;
+        return Objects.equals(age, user.age);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (age != null ? age.hashCode() : 0);
+        return result;
     }
 }
