@@ -11,7 +11,6 @@ import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
 
-
     public UserDaoHibernateImpl() {
 
     }
@@ -97,7 +96,6 @@ public class UserDaoHibernateImpl implements UserDao {
             System.err.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
-
         return list;
     }
 
